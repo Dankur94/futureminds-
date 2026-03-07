@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CreatorPort for Institutions — AI & Robotics Workshops for Schools & Universities</title>
+<meta name="description" content="Bring AI and robotics education to your school, university, or organisation. German-engineered workshops by RWTH Aachen engineers.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fafafa;
+    --bg-card: #ffffff;
+    --text: #1a1a2e;
+    --text-sub: #555566;
+    --text-muted: #999;
+    --accent: #1a1a2e;
+    --accent-blue: #2563eb;
+    --border: #e8e8f0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+  }
+
+  /* NAV */
+  nav {
+    padding: 20px 60px;
+    display: flex; justify-content: space-between; align-items: center;
+    border-bottom: 1px solid var(--border);
+    background: #fff;
+    position: sticky; top: 0; z-index: 100;
+  }
+  .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .logo-icon {
+    width: 32px; height: 32px; border-radius: 8px;
+    background: var(--accent); display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 16px; color: #fff; font-family: 'Inter', sans-serif;
+  }
+  .logo-text { font-weight: 700; font-size: 16px; color: var(--text); letter-spacing: -0.3px; }
+  .logo-sub { font-size: 12px; color: var(--text-muted); margin-left: 12px; font-weight: 400; }
+
+  .nav-links { display: flex; gap: 32px; list-style: none; align-items: center; }
+  .nav-links a { color: var(--text-sub); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.3s; }
+  .nav-links a:hover { color: var(--accent-blue); }
+  .nav-cta {
+    padding: 10px 24px; border-radius: 8px; font-weight: 600; font-size: 14px;
+    text-decoration: none; color: #fff; background: var(--accent);
+    transition: all 0.3s;
+  }
+  .nav-cta:hover { background: #2a2a4e; }
+
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; }
+  .hamburger span { width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: all 0.3s; }
+
+  /* HERO */
+  .hero {
+    padding: 100px 60px 80px;
+    max-width: 1100px; margin: 0 auto;
+  }
+  .hero-label {
+    font-size: 12px; text-transform: uppercase; letter-spacing: 2px;
+    color: var(--accent-blue); font-weight: 600; margin-bottom: 16px;
+  }
+  .hero h1 {
+    font-size: 52px; font-weight: 800; letter-spacing: -2px; line-height: 1.1;
+    margin-bottom: 20px; max-width: 700px;
+  }
+  .hero-sub {
+    font-size: 18px; color: var(--text-sub); max-width: 560px;
+    line-height: 1.7; margin-bottom: 36px;
+  }
+  .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn-dark {
+    padding: 14px 32px; border-radius: 8px; font-weight: 600; font-size: 15px;
+    text-decoration: none; color: #fff; background: var(--accent);
+    transition: all 0.3s; display: inline-block;
+  }
+  .btn-dark:hover { background: #2a2a4e; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
+  .btn-outline {
+    padding: 14px 32px; border-radius: 8px; font-weight: 600; font-size: 15px;
+    text-decoration: none; color: var(--text); background: transparent;
+    border: 1px solid var(--border); transition: all 0.3s; display: inline-block;
+  }
+  .btn-outline:hover { border-color: var(--accent); }
+
+  /* TRUST */
+  .trust {
+    padding: 40px 60px;
+    border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    display: flex; gap: 48px; align-items: center; justify-content: center; flex-wrap: wrap;
+  }
+  .trust-item { font-size: 14px; color: var(--text-muted); font-weight: 500; }
+  .trust-item strong { color: var(--text); font-weight: 700; }
+
+  /* SECTIONS */
+  section { padding: 80px 60px; max-width: 1100px; margin: 0 auto; }
+  .section-label {
+    font-size: 12px; text-transform: uppercase; letter-spacing: 2px;
+    color: var(--accent-blue); font-weight: 600; margin-bottom: 8px;
+  }
+  .section-title {
+    font-size: 36px; font-weight: 800; letter-spacing: -1.5px;
+    margin-bottom: 12px; line-height: 1.15;
+  }
+  .section-desc {
+    font-size: 16px; color: var(--text-sub); max-width: 560px;
+    line-height: 1.7; margin-bottom: 48px;
+  }
+
+  /* OFFERING */
+  .offering {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;
+    margin-bottom: 80px;
+  }
+  .offering-img {
+    background: #f0f0f5; border-radius: 16px; height: 360px;
+    display: flex; align-items: center; justify-content: center; font-size: 80px;
+    border: 1px solid var(--border);
+  }
+  .offering-content h3 { font-size: 28px; font-weight: 700; margin-bottom: 12px; letter-spacing: -0.5px; }
+  .offering-content p { font-size: 15px; color: var(--text-sub); line-height: 1.7; margin-bottom: 20px; }
+  .offering-features { list-style: none; }
+  .offering-features li {
+    font-size: 14px; color: var(--text-sub); padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .offering-features li::before { content: '✓'; color: var(--accent-blue); font-weight: 700; }
+
+  /* FORMATS */
+  .formats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  .format-card {
+    background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px;
+    padding: 32px; transition: all 0.3s;
+  }
+  .format-card:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.06); transform: translateY(-3px); }
+  .format-icon { font-size: 32px; margin-bottom: 16px; }
+  .format-title { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+  .format-desc { font-size: 14px; color: var(--text-sub); line-height: 1.6; }
+
+  /* CTA BANNER */
+  .cta-banner {
+    background: var(--accent); color: #fff; border-radius: 16px;
+    padding: 60px; text-align: center; margin: 40px 60px 0;
+    max-width: 1100px; margin-left: auto; margin-right: auto;
+  }
+  .cta-banner h2 { font-size: 32px; font-weight: 800; margin-bottom: 12px; letter-spacing: -1px; }
+  .cta-banner p { font-size: 16px; opacity: 0.8; margin-bottom: 28px; max-width: 500px; margin-left: auto; margin-right: auto; }
+  .btn-white {
+    padding: 14px 32px; border-radius: 8px; font-weight: 600; font-size: 15px;
+    text-decoration: none; color: var(--accent); background: #fff;
+    transition: all 0.3s; display: inline-block;
+  }
+  .btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.15); }
+
+  /* FOOTER */
+  .footer-bottom {
+    padding: 32px 60px;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 12px; color: var(--text-muted); flex-wrap: wrap; gap: 12px;
+    margin-top: 80px; border-top: 1px solid var(--border);
+  }
+  .footer-bottom a { color: var(--text-muted); text-decoration: none; }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 16px 24px; }
+    .nav-links { display: none; width: 100%; flex-direction: column; gap: 16px; padding: 20px 0; order: 99; }
+    .nav-links.open { display: flex !important; }
+    nav.menu-open { flex-wrap: wrap; }
+    .hamburger { display: flex; }
+    .nav-cta { display: none; }
+    .hero { padding: 60px 24px; }
+    .hero h1 { font-size: 32px; }
+    .hero-sub { font-size: 16px; }
+    section { padding: 60px 24px; }
+    .offering { grid-template-columns: 1fr; }
+    .offering-img { height: 240px; }
+    .formats { grid-template-columns: 1fr; }
+    .trust { padding: 24px; gap: 24px; }
+    .cta-banner { margin: 40px 24px 0; padding: 40px 24px; }
+    .cta-banner h2 { font-size: 24px; }
+    .footer-bottom { padding: 24px; flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div style="display: flex; align-items: center;">
+    <a href="index.html" class="logo">
+      <div class="logo-icon">C</div>
+      <div class="logo-text">Creator<em>Port</em></div>
+    </a>
+    <span class="logo-sub">for Institutions</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#offering">The OrbBot</a></li>
+    <li><a href="#formats">Formats</a></li>
+    <li><a href="juniors.html">Kids Programs</a></li>
+    <li><a href="adults.html">Adult Workshops</a></li>
+  </ul>
+  <a href="https://wa.me/85265427963?text=Hi%21%20I%27m%20inquiring%20about%20CreatorPort%20for%20our%20institution.%0A-%20Organisation%3A%0A-%20Type%20%28School%20/%20University%20/%20Other%29%3A%0A-%20Number%20of%20students%3A%0A-%20What%20we%27re%20looking%20for%3A" target="_blank" class="nav-cta">Get in Touch</a>
+  <div class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open');document.querySelector('nav').classList.toggle('menu-open');">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-label">For Schools · Universities · Organisations</div>
+  <h1>Bring robotics &amp; AI into your classroom.</h1>
+  <p class="hero-sub">German-engineered workshops led by RWTH Aachen engineers. On-site at your institution or at our studio on Hong Kong Island.</p>
+  <div class="hero-actions">
+    <a href="https://wa.me/85265427963?text=Hi%21%20I%27m%20inquiring%20about%20CreatorPort%20for%20our%20institution.%0A-%20Organisation%3A%0A-%20Type%20%28School%20/%20University%20/%20Other%29%3A%0A-%20Number%20of%20students%3A%0A-%20What%20we%27re%20looking%20for%3A" target="_blank" class="btn-dark">Request a Proposal</a>
+    <a href="#offering" class="btn-outline">Learn More</a>
+  </div>
+</div>
+
+<!-- TRUST BAR -->
+<div class="trust">
+  <div class="trust-item"><strong>RWTH Aachen</strong> trained engineers</div>
+  <div class="trust-item"><strong>B.Sc. & M.Sc.</strong> level instructors</div>
+  <div class="trust-item"><strong>Bilingual</strong> EN / DE</div>
+  <div class="trust-item"><strong>Custom</strong> programs available</div>
+</div>
+
+<!-- OFFERING -->
+<section id="offering">
+  <div class="section-label">Flagship Workshop</div>
+  <div class="offering">
+    <div class="offering-img">⚖️</div>
+    <div class="offering-content">
+      <h3>The OrbBot Workshop</h3>
+      <p>Students build a self-balancing robot that stays upright on a ball — combining mechanical assembly, electronics, coding, and LQR control theory in one hands-on project.</p>
+      <p>Each student assembles their own OrbBot from our proprietary kit, programs it, tunes the controller, and takes it home. Designed and manufactured by <a href="https://dankur94.github.io/kurthtechnik/" target="_blank" style="color: var(--accent-blue); text-decoration: none; font-weight: 600;">KurthTechnik</a>.</p>
+      <ul class="offering-features">
+        <li>4-hour guided workshop</li>
+        <li>OrbBot kit included for every student</li>
+        <li>IMU sensors, motors, microcontroller</li>
+        <li>LQR control — real engineering, not toy code</li>
+        <li>Students take their OrbBot home</li>
+        <li>Suitable for ages 14+ (secondary & university)</li>
+        <li>Groups of 6–30 students</li>
+        <li>On-site at your institution or at our studio</li>
+        <li>Taught in English or German</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- FORMATS -->
+<section id="formats">
+  <div class="section-label">Delivery Formats</div>
+  <h2 class="section-title">Flexible to fit your schedule.</h2>
+  <p class="section-desc">We come to you, or you come to us. All workshops delivered in English or German.</p>
+
+  <div class="formats">
+    <div class="format-card">
+      <div class="format-icon">🏫</div>
+      <h3 class="format-title">On-Site at Your Institution</h3>
+      <p class="format-desc">We bring everything to your school — kits, tools, laptops. All we need is a classroom with tables and power. Minimum 6 students.</p>
+    </div>
+    <div class="format-card">
+      <div class="format-icon">🔬</div>
+      <h3 class="format-title">At Our Studio</h3>
+      <p class="format-desc">Bring your students to our fully equipped makerspace on Hong Kong Island, Central. Ideal for field trips and enrichment days. Max 12 students per session.</p>
+    </div>
+    <div class="format-card">
+      <div class="format-icon">👨‍🏫</div>
+      <h3 class="format-title">In-House Teaching</h3>
+      <p class="format-desc">Embed our instructors into your school for a term or full year. We teach robotics and AI as part of your regular curriculum, using your classrooms and schedule.</p>
+    </div>
+    <div class="format-card">
+      <div class="format-icon">📅</div>
+      <h3 class="format-title">Multi-Session Program</h3>
+      <p class="format-desc">Co-design a syllabus with your teachers over weeks or a full term. Weekly sessions, assessed projects, progress reports.</p>
+    </div>
+  </div>
+
+  <div style="text-align: center; margin-top: 40px; padding: 24px; background: #f5f5fa; border-radius: 12px; border: 1px solid var(--border);">
+    <p style="font-size: 14px; color: var(--text-sub); margin-bottom: 4px;">All workshops and programs delivered in</p>
+    <p style="font-size: 18px; font-weight: 700; color: var(--text);">English or German</p>
+    <p style="font-size: 13px; color: var(--text-muted); margin-top: 8px;">OrbBot kits designed and manufactured by <a href="https://dankur94.github.io/kurthtechnik/" target="_blank" style="color: var(--accent-blue); text-decoration: none; font-weight: 600;">KurthTechnik</a></p>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<div class="cta-banner">
+  <h2>Let's design a program for your students.</h2>
+  <p>Tell us about your institution and we'll create a tailored proposal — format, group size, pricing, and schedule.</p>
+  <a href="https://wa.me/85265427963?text=Hi%21%20I%27m%20inquiring%20about%20CreatorPort%20for%20our%20institution.%0A-%20Organisation%3A%0A-%20Type%20%28School%20/%20University%20/%20Other%29%3A%0A-%20Number%20of%20students%3A%0A-%20What%20we%27re%20looking%20for%3A" target="_blank" class="btn-white">Request a Proposal →</a>
+</div>
+
+<div class="footer-bottom">
+  <span>CreatorPort is a brand operated by © Space of Possibilities Limited · Hong Kong</span>
+  <span>
+    <a href="privacy.html" style="margin-right: 16px;">Privacy</a>
+    <a href="terms.html">Terms</a>
+  </span>
+</div>
+
+</body>
+</html>
