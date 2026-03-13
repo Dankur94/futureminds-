@@ -51,6 +51,49 @@
     width: 100%;
   }
 
+  /* LANGUAGE TOGGLE */
+  [data-lang-de] { display: none; }
+  body.lang-de [data-lang-en] { display: none; }
+  body.lang-de [data-lang-de] { display: block; }
+
+  /* Inline lang elements (spans inside headings, links, etc.) */
+  body.lang-de span[data-lang-de],
+  body.lang-de a[data-lang-de] { display: inline; }
+  span[data-lang-de] { display: none; }
+
+  .lang-toggle {
+    position: absolute;
+    top: 40px;
+    right: 24px;
+    display: flex;
+    gap: 4px;
+    z-index: 10;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0s forwards;
+  }
+  .lang-toggle button {
+    font-family: 'Sora', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding: 5px 10px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: transparent;
+    color: var(--text-sub);
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  .lang-toggle button.active {
+    background: rgba(255,255,255,0.08);
+    color: var(--text);
+    border-color: rgba(255,255,255,0.15);
+  }
+  .lang-toggle button:hover {
+    color: var(--text);
+    border-color: rgba(255,255,255,0.15);
+  }
+
   /* LOGO */
   .logo {
     display: flex;
@@ -212,10 +255,10 @@
     to { opacity: 1; transform: translateY(0); }
   }
 
-  .logo, h1, .subtitle, .choose-label { 
-    opacity: 0; 
-    transform: translateY(20px); 
-    animation: fadeUp 0.8s ease forwards; 
+  .logo, h1, .subtitle, .choose-label {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.8s ease forwards;
   }
   .logo { animation-delay: 0s; }
   h1 { animation-delay: 0.1s; }
@@ -231,53 +274,90 @@
     .cards { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto 48px; }
     .card { padding: 28px 20px; }
     .card-emoji { font-size: 36px; margin-bottom: 14px; }
+    .lang-toggle { top: 16px; right: 16px; }
   }
 </style>
 </head>
 <body>
 
 <div class="container">
+  <div class="lang-toggle">
+    <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+    <button id="btn-de" onclick="setLang('de')">DE</button>
+  </div>
+
   <div class="logo">
     <div class="logo-icon"><span>C</span></div>
     <div class="logo-text">Creator<em>Port</em></div>
   </div>
 
-  <h1>AI & Robotics<br><span class="gradient-text">for everyone.</span></h1>
-  <p class="subtitle">German-engineered education in Hong Kong Island, Central & online worldwide.</p>
+  <h1>
+    <span data-lang-en>AI & Robotics<br><span class="gradient-text">for everyone.</span></span>
+    <span data-lang-de>KI & Robotik<br><span class="gradient-text">für alle.</span></span>
+  </h1>
+  <p class="subtitle" data-lang-en>German-engineered education in Hong Kong Island, Central & online worldwide.</p>
+  <p class="subtitle" data-lang-de>Deutsche Ingenieurskunst in Hongkong Island, Central & online weltweit.</p>
 
-  <div class="choose-label">I'm looking for</div>
+  <div class="choose-label" data-lang-en>I'm looking for</div>
+  <div class="choose-label" data-lang-de>Ich suche</div>
 
   <div class="cards">
     <a href="juniors.html" class="card card-junior fade-in">
       <span class="card-emoji">🚀</span>
-      <div class="card-title">Junior Programs</div>
-      <div class="card-age">Ages 9–17</div>
-      <p class="card-desc">Term-based AI and robotics tracks. Explorer & Builder levels. Small groups, big projects. In-person & online.</p>
-      <span class="card-arrow">Explore Programs →</span>
+      <div class="card-title" data-lang-en>Junior Programs</div>
+      <div class="card-title" data-lang-de>Jugendprogramme</div>
+      <div class="card-age" data-lang-en>Ages 9–17</div>
+      <div class="card-age" data-lang-de>9–17 Jahre</div>
+      <p class="card-desc" data-lang-en>Term-based AI and robotics tracks. Explorer & Builder levels. Small groups, big projects. In-person & online.</p>
+      <p class="card-desc" data-lang-de>Semesterbasierte KI- und Robotik-Kurse. Explorer- & Builder-Level. Kleine Gruppen, große Projekte. Vor Ort & online.</p>
+      <span class="card-arrow" data-lang-en>Explore Programs →</span>
+      <span class="card-arrow" data-lang-de>Programme entdecken →</span>
     </a>
 
     <a href="adults.html" class="card card-adults fade-in">
       <span class="card-emoji">🍺</span>
-      <div class="card-title">Adult Workshops</div>
-      <div class="card-age">Adults</div>
-      <p class="card-desc">Single-session hands-on workshops. Build a beer tap, a coffee roaster, or understand AI. No experience needed.</p>
-      <span class="card-arrow">See Workshops →</span>
+      <div class="card-title" data-lang-en>Adult Workshops</div>
+      <div class="card-title" data-lang-de>Workshops für Erwachsene</div>
+      <div class="card-age" data-lang-en>Adults</div>
+      <div class="card-age" data-lang-de>Erwachsene</div>
+      <p class="card-desc" data-lang-en>Single-session hands-on workshops. Build a beer tap, a coffee roaster, or understand AI. No experience needed.</p>
+      <p class="card-desc" data-lang-de>Einmalige Hands-on-Workshops. Baue ein Zapfsystem, einen Kaffeeröster oder verstehe KI. Keine Erfahrung nötig.</p>
+      <span class="card-arrow" data-lang-en>See Workshops →</span>
+      <span class="card-arrow" data-lang-de>Workshops ansehen →</span>
     </a>
 
     <a href="institutions.html" class="card card-institutions fade-in">
       <span class="card-emoji">🏫</span>
-      <div class="card-title">Schools & Institutions</div>
-      <div class="card-age">Custom Programs</div>
-      <p class="card-desc">OrbBot workshops and in-house teaching for international schools, universities, and organisations. On-site or at our studio. English or German.</p>
-      <span class="card-arrow">Get in Touch →</span>
+      <div class="card-title" data-lang-en>Schools & Institutions</div>
+      <div class="card-title" data-lang-de>Schulen & Institutionen</div>
+      <div class="card-age" data-lang-en>Custom Programs</div>
+      <div class="card-age" data-lang-de>Individuelle Programme</div>
+      <p class="card-desc" data-lang-en>OrbBot workshops and in-house teaching for international schools, universities, and organisations. On-site or at our studio. English or German.</p>
+      <p class="card-desc" data-lang-de>OrbBot-Workshops und Unterricht vor Ort für internationale Schulen, Universitäten und Organisationen. Bei Ihnen oder in unserem Studio. Englisch oder Deutsch.</p>
+      <span class="card-arrow" data-lang-en>Get in Touch →</span>
+      <span class="card-arrow" data-lang-de>Kontakt aufnehmen →</span>
     </a>
   </div>
 
   <div class="footer">
     CreatorPort is a brand operated by © Space of Possibilities Limited · Hong Kong · contact@spaceop.education<br>
-    <a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms of Service</a>
+    <a href="privacy.html" data-lang-en>Privacy Policy</a><a href="privacy.html" data-lang-de>Datenschutz</a> · <a href="terms.html" data-lang-en>Terms of Service</a><a href="terms.html" data-lang-de>AGB</a>
   </div>
 </div>
+
+<script>
+function setLang(lang) {
+  document.body.classList.toggle('lang-de', lang === 'de');
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  document.getElementById('btn-de').classList.toggle('active', lang === 'de');
+  localStorage.setItem('creatorport-lang', lang);
+}
+
+(function() {
+  var saved = localStorage.getItem('creatorport-lang');
+  if (saved === 'de') setLang('de');
+})();
+</script>
 
 </body>
 </html>
