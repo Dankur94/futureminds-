@@ -136,8 +136,8 @@
   }
 
   .nav-links a:hover { color: var(--accent-electric); }
-  a:not(.logo):not(.nav-cta):not(.price-btn):not(.track-btn) { text-decoration: underline; text-underline-offset: 3px; }
-  a:not(.logo):not(.nav-cta):not(.price-btn):not(.track-btn):hover { color: var(--accent-electric); }
+  a:not(.logo):not(.nav-cta):not(.price-btn):not(.track-btn):not(.nav-links a) { text-decoration: underline; text-underline-offset: 3px; }
+  .nav-links a { text-decoration: none !important; }
 
   .lang-toggle {
     display: flex;
@@ -1405,29 +1405,24 @@
     }
   }
 
-  /* LANG SWITCHING */
-  [data-lang-de], [data-lang-zh] { display: none; }
-  span[data-lang-de], em[data-lang-de], a[data-lang-de] { display: none; }
-  span[data-lang-zh], em[data-lang-zh], a[data-lang-zh] { display: none; }
+  /* LANG SWITCHING — !important needed to override display set by button/link classes */
+  [data-lang-de], [data-lang-zh] { display: none !important; }
 
-  body.lang-de [data-lang-en] { display: none; }
-  body.lang-de [data-lang-zh] { display: none; }
-  body.lang-de [data-lang-de] { display: block; }
+  body.lang-de [data-lang-en] { display: none !important; }
+  body.lang-de [data-lang-zh] { display: none !important; }
+  body.lang-de [data-lang-de] { display: block !important; }
   body.lang-de span[data-lang-de],
   body.lang-de em[data-lang-de],
-  body.lang-de a[data-lang-de] { display: inline-block; }
-  body.lang-de div[data-lang-de] { display: block; }
-  body.lang-de a[data-lang-en] { display: none; }
+  body.lang-de a[data-lang-de] { display: inline-block !important; }
+  body.lang-de div[data-lang-de] { display: block !important; }
 
-  body.lang-zh [data-lang-en] { display: none; }
-  body.lang-zh [data-lang-de] { display: none; }
-  body.lang-zh [data-lang-zh] { display: none; }
-  body.lang-zh [data-lang-zh] { display: block; }
+  body.lang-zh [data-lang-en] { display: none !important; }
+  body.lang-zh [data-lang-de] { display: none !important; }
+  body.lang-zh [data-lang-zh] { display: block !important; }
   body.lang-zh span[data-lang-zh],
   body.lang-zh em[data-lang-zh],
-  body.lang-zh a[data-lang-zh] { display: inline-block; }
-  body.lang-zh div[data-lang-zh] { display: block; }
-  body.lang-zh a[data-lang-en] { display: none; }
+  body.lang-zh a[data-lang-zh] { display: inline-block !important; }
+  body.lang-zh div[data-lang-zh] { display: block !important; }
 
   body.lang-zh * { font-family: 'Noto Sans TC', 'Sora', sans-serif; }
 </style>
