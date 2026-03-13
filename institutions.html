@@ -20,6 +20,7 @@
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
 
   body {
     font-family: 'Inter', sans-serif;
@@ -254,8 +255,8 @@
       <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
       <button id="btn-de" onclick="setLang('de')">DE</button>
     </div>
-    <a href="mailto:contact@spaceop.education" class="nav-cta" data-lang-en>Get in Touch</a>
-    <a href="mailto:contact@spaceop.education" class="nav-cta" data-lang-de>Kontakt aufnehmen</a>
+    <a href="#contact" class="nav-cta" data-lang-en>Get in Touch</a>
+    <a href="#contact" class="nav-cta" data-lang-de>Kontakt aufnehmen</a>
   </div>
   <div class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open');document.querySelector('nav').classList.toggle('menu-open');">
     <span></span><span></span><span></span>
@@ -268,28 +269,27 @@
   <div class="hero-label" data-lang-de>F&uuml;r Schulen &middot; Universit&auml;ten &middot; Organisationen</div>
   <h1 data-lang-en>Bring robotics &amp; AI into your classroom.</h1>
   <h1 data-lang-de>Bringen Sie Robotik &amp; KI in Ihr Klassenzimmer.</h1>
-  <p class="hero-sub" data-lang-en>Hands-on workshops led by an M.Sc. engineer from RWTH Aachen University &mdash; one of Europe's leading technical universities. On-site at your institution or at our studio on Hong Kong Island.</p>
-  <p class="hero-sub" data-lang-de>Praxisnahe Workshops geleitet von einem M.Sc.-Ingenieur der RWTH Aachen &mdash; einer der f&uuml;hrenden technischen Universit&auml;ten Europas. Vor Ort in Ihrer Institution oder in unserem Studio auf Hong Kong Island.</p>
+  <p class="hero-sub" data-lang-en>Hands-on workshops led by an RWTH Aachen University engineer. On-site at your institution or at our studio on Hong Kong Island.</p>
+  <p class="hero-sub" data-lang-de>Praxisnahe Workshops geleitet von einem Ingenieur der RWTH Aachen. Vor Ort in Ihrer Institution oder in unserem Studio auf Hong Kong Island.</p>
   <div class="hero-actions" data-lang-en>
-    <a href="mailto:contact@spaceop.education" class="btn-dark">Request a Proposal</a>
+    <a href="#contact" class="btn-dark">Request a Proposal</a>
     <a href="#offering" class="btn-outline">Learn More</a>
   </div>
   <div class="hero-actions" data-lang-de>
-    <a href="mailto:contact@spaceop.education" class="btn-dark">Angebot anfordern</a>
+    <a href="#contact" class="btn-dark">Angebot anfordern</a>
     <a href="#offering" class="btn-outline">Mehr erfahren</a>
   </div>
 </div>
 
-<!-- TRUST BAR -->
-<div class="trust" data-lang-en>
-  <div class="trust-item"><strong>RWTH Aachen</strong> University &mdash; M.Sc. engineer</div>
-  <div class="trust-item"><strong>Bilingual</strong> English / German</div>
-  <div class="trust-item"><strong>Custom</strong> programs available</div>
-</div>
-<div class="trust" data-lang-de>
-  <div class="trust-item"><strong>RWTH Aachen</strong> &mdash; M.Sc.-Ingenieur</div>
-  <div class="trust-item"><strong>Zweisprachig</strong> Englisch / Deutsch</div>
-  <div class="trust-item"><strong>Individuelle</strong> Programme m&ouml;glich</div>
+<!-- INSTRUCTOR -->
+<div class="trust">
+  <div class="trust-item" data-lang-en><strong>Daniel Kurth</strong> &mdash; Founder &amp; Lead Instructor</div>
+  <div class="trust-item" data-lang-de><strong>Daniel Kurth</strong> &mdash; Gr&uuml;nder &amp; Kursleiter</div>
+  <div class="trust-item"><strong>B.Sc.</strong> RWTH Aachen</div>
+  <div class="trust-item" data-lang-en>Mechanical Eng. &middot; Business &middot; Manufacturing</div>
+  <div class="trust-item" data-lang-de>Maschinenbau &middot; BWL &middot; Fertigungstechnik</div>
+  <div class="trust-item" data-lang-en><strong>Bilingual</strong> EN / DE</div>
+  <div class="trust-item" data-lang-de><strong>Zweisprachig</strong> EN / DE</div>
 </div>
 
 <!-- OFFERING -->
@@ -396,15 +396,15 @@
   </div>
 </section>
 
-<!-- CTA BANNER -->
-<div class="cta-banner">
+<!-- CONTACT -->
+<div class="cta-banner" id="contact">
   <h2 data-lang-en>Let's design a program for your students.</h2>
   <h2 data-lang-de>Lassen Sie uns ein Programm f&uuml;r Ihre Sch&uuml;ler gestalten.</h2>
   <p data-lang-en>Tell us about your institution and we'll create a tailored proposal &mdash; format, group size, pricing, and schedule.</p>
-  <p data-lang-de>Erz&auml;hlen Sie uns von Ihrer Institution und wir erstellen ein ma&szlig;geschneidertes Angebot &mdash; Format, Gruppengroesse, Preise und Zeitplan.</p>
+  <p data-lang-de>Erz&auml;hlen Sie uns von Ihrer Institution und wir erstellen ein ma&szlig;geschneidertes Angebot &mdash; Format, Gruppengr&ouml;&szlig;e, Preise und Zeitplan.</p>
   <div class="cta-actions">
-    <a href="mailto:contact@spaceop.education" class="btn-white" data-lang-en>Email Us</a>
-    <a href="mailto:contact@spaceop.education" class="btn-white" data-lang-de>E-Mail senden</a>
+    <a href="mailto:contact@spaceop.education" class="btn-white" data-lang-en>contact@spaceop.education</a>
+    <a href="mailto:contact@spaceop.education" class="btn-white" data-lang-de>contact@spaceop.education</a>
     <a href="https://wa.me/85265427963?text=Hi%21%20I%27m%20inquiring%20about%20CreatorPort%20for%20our%20institution.%0A-%20Organisation%3A%0A-%20Type%20%28School%20/%20University%20/%20Other%29%3A%0A-%20Number%20of%20students%3A%0A-%20What%20we%27re%20looking%20for%3A" target="_blank" class="btn-white-outline" data-lang-en>WhatsApp</a>
     <a href="https://wa.me/85265427963?text=Hallo%21%20Ich%20interessiere%20mich%20f%C3%BCr%20CreatorPort%20f%C3%BCr%20unsere%20Institution.%0A-%20Organisation%3A%0A-%20Typ%20%28Schule%20/%20Universit%C3%A4t%20/%20Andere%29%3A%0A-%20Anzahl%20der%20Sch%C3%BCler%3A%0A-%20Was%20wir%20suchen%3A" target="_blank" class="btn-white-outline" data-lang-de>WhatsApp</a>
   </div>
