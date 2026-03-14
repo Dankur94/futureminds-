@@ -93,6 +93,29 @@
     background: linear-gradient(180deg, var(--bg) 0%, var(--bg-warm) 100%);
   }
 
+  .hero-split {
+    display: flex; align-items: center; gap: 60px;
+    max-width: 900px; margin-bottom: 32px;
+  }
+
+  .hero-logo-img {
+    width: 300px; height: auto; flex-shrink: 0;
+    opacity: 0; animation: logoFadeIn 1.5s ease forwards;
+  }
+
+  @keyframes logoFadeIn {
+    0% { opacity: 0; transform: scale(0.85); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+
+  .hero-text { text-align: left; }
+
+  @media (max-width: 768px) {
+    .hero-split { flex-direction: column; gap: 32px; }
+    .hero-logo-img { width: 200px; }
+    .hero-text { text-align: center; }
+  }
+
   .hero-eyebrow {
     font-size: 11px; text-transform: uppercase; letter-spacing: 4px;
     color: var(--accent); font-weight: 500; margin-bottom: 32px;
@@ -268,9 +291,6 @@
 <body>
 
 <nav>
-  <a href="roaster.html" class="logo">
-    <img src="kurth-logo.svg" alt="Kurth Kaffee &amp; Technik" style="height: 36px; width: auto;">
-  </a>
   <ul class="nav-links">
     <li><a href="#principle" data-lang-en>Principle</a><a href="#principle" data-lang-de>Prinzip</a></li>
     <li><a href="#features" data-lang-en>Features</a><a href="#features" data-lang-de>Merkmale</a></li>
@@ -292,28 +312,25 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="reveal" style="margin-bottom: 48px;">
-    <img src="kurth-hero.svg" alt="Kurth Kaffee &amp; Technik" style="width: 280px; height: auto;">
-  </div>
-
-  <div class="hero-eyebrow reveal">AeroRoast Mini</div>
-
-  <h1 class="reveal" data-lang-en>Visibly <em>perfect</em><br>roasting.</h1>
-  <h1 class="reveal" data-lang-de>Sichtbar <em>perfekt</em><br>ger&ouml;stet.</h1>
-
-  <p class="hero-sub reveal" data-lang-en>Compact hot-air coffee roaster for home and microroasteries. Watch your beans transform from green to gold — in real time, through borosilicate glass.</p>
-  <p class="hero-sub reveal" data-lang-de>Kompakter Heißluft-Kaffeeröster für Zuhause und Microroasteries. Beobachte durch das Borosilikat-Glasrohr in Echtzeit, wie deine Bohnen von grün zu Gold wechseln.</p>
-
-  <div class="hero-actions reveal">
-    <a href="#buy" class="btn-dark" data-lang-en>RESERVE NOW</a>
-    <a href="#buy" class="btn-dark" data-lang-de>JETZT RESERVIEREN</a>
-    <a href="#principle" class="btn-ghost" data-lang-en>DISCOVER</a>
-    <a href="#principle" class="btn-ghost" data-lang-de>ENTDECKEN</a>
-  </div>
-
-  <div class="hero-price reveal">
-    <span data-lang-en><strong>$289 USD</strong> · Worldwide shipping $12</span>
-    <span data-lang-de><strong>$289 USD</strong> · Weltweiter Versand $12</span>
+  <div class="hero-split">
+    <img src="kurth-hero.svg" alt="Kurth Kaffee &amp; Technik" class="hero-logo-img">
+    <div class="hero-text">
+      <div class="hero-eyebrow reveal">AeroRoast Mini</div>
+      <h1 class="reveal" data-lang-en>Visibly <em>perfect</em><br>roasting.</h1>
+      <h1 class="reveal" data-lang-de>Sichtbar <em>perfekt</em><br>ger&ouml;stet.</h1>
+      <p class="hero-sub reveal" data-lang-en>Compact hot-air coffee roaster for home and microroasteries. Watch your beans transform from green to gold &mdash; in real time, through borosilicate glass.</p>
+      <p class="hero-sub reveal" data-lang-de>Kompakter Hei&szlig;luft-Kaffeer&ouml;ster f&uuml;r Zuhause und Microroasteries. Beobachte durch das Borosilikat-Glasrohr in Echtzeit, wie deine Bohnen von gr&uuml;n zu Gold wechseln.</p>
+      <div class="hero-actions reveal">
+        <a href="#buy" class="btn-dark" data-lang-en>RESERVE NOW</a>
+        <a href="#buy" class="btn-dark" data-lang-de>JETZT RESERVIEREN</a>
+        <a href="#principle" class="btn-ghost" data-lang-en>DISCOVER</a>
+        <a href="#principle" class="btn-ghost" data-lang-de>ENTDECKEN</a>
+      </div>
+      <div class="hero-price reveal">
+        <span data-lang-en><strong>$289 USD</strong> &middot; Worldwide shipping $12</span>
+        <span data-lang-de><strong>$289 USD</strong> &middot; Weltweiter Versand $12</span>
+      </div>
+    </div>
   </div>
 </section>
 
